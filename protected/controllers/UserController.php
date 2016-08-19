@@ -17,8 +17,26 @@ class UserController extends CController {
 
         $result = array();
         $result['code'] = 1;
-        $result['data'] = array($result);
+        $result['data'] = array($addRet);
         echo json_encode($result);
     }
 
+    public function actionfindUser() {
+        $params = array();
+        $params['userName'] = 'wowo';
+        $userModel = new UserModel();
+        $criteria = new CDbCriteria();
+        $criteria->select = 'id, name, age';
+        $criteria->condition = 'id=:userName';
+        $criteria->params = array(':userName' => $params['userName']);
+        
+        $findRet = UserModel::model()->findAll($criteria);
+
+        $result = array();
+        $result['code'] = 1;
+        $result['data'] = $findRet;
+
+        echo json_encode($result);
+
+    }
 }
