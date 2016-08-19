@@ -1,4 +1,5 @@
 <?php
+//参考 http://www.yiiframework.com/doc/guide/1.1/zh_cn/database.ar
 
 class UserController extends CController {
     public function actionAddUser() {
