@@ -30,13 +30,14 @@ return array(
             'password' => '',
             'charset' => 'utf8',
             //'tablePrefix' => 'tbl_',
+            'enableParamLogging' => true,//使用ActiveRecord查询数据库时，打印实际查询的sql语句
         ),
         'log'=>array(
             'class'=>'CLogRouter',
             'routes'=>array(
                 array(
                     'class'=>'CFileLogRoute',
-                    'levels'=>'trace, info',
+                    'levels'=>'trace, info, error, warning',
                     'categories'=>'system.*',
                 ),
             ),
