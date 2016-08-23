@@ -3,10 +3,11 @@
 
 class UserController extends CController {
     public function actionAddUser() {
-        //参数获取下次再讲，这次写死
-        $params = array();
-        $params['name'] = 'wowo';
-        $params['age'] = 15;
+        $params = file_get_contents("php://input");
+        $params = json_decode($params, true);
+        if(empty($params['name']) || empty($params['age']) ){
+            echo array('ret' => 0, 'msg' => '参数错误');
+        }
 
         $now = time();
         $userModel = new UserModel();
