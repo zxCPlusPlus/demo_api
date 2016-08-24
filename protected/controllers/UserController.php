@@ -24,8 +24,8 @@ class UserController extends CController {
     }
 
     public function actionfindUser() {
-        $params = array();
-        $params['userName'] = 'wowo';
+        $params = file_get_contents("php://input");
+        $params = json_decode($params, true);
         $criteria = new CDbCriteria();
         //两种写法都可以
         //$criteria->select = 'id, name, age';
