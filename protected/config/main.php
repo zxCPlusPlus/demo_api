@@ -15,6 +15,9 @@ return array(
 
     // application components
     'components'=>array(
+        'errorHandler' => array(
+            'class' => 'MyErrorHandler'
+        ),
         'urlManager'=>array(
             'urlFormat'=>'path',
             'rules'=>array(
